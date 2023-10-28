@@ -71,6 +71,10 @@ function touchStarted() {
 }
 
 function handleInteraction() {
+  if (getAudioContext().state !== 'running') {
+  getAudioContext().resume();
+}
+
   // Check if a waveform button is pressed
   let waveTypes = ['sine', 'square', 'sawtooth', 'triangle'];
   for (let i = 0; i < waveTypes.length; i++) {
