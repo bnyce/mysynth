@@ -17,6 +17,16 @@ function setup() {
   buttonWidth = width / 4;
   buttonHeight = 50;
   textSize(20);
+  document.getElementById('startAudio').addEventListener('click', function() {
+    if (getAudioContext().state !== 'running') {
+        getAudioContext().resume().then(() => {
+            console.log('AudioContext is running');
+            // Here you can also hide the start button since it's no longer needed
+            document.getElementById('startAudio').style.display = 'none';
+        });
+    }
+});
+
 }
 
 function draw() {
